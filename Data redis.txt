@@ -1,0 +1,9 @@
+we use jedis connectionfactory to connect with redis.
+we also use redis template to interact with redis with help of jedis connection factory to store data.
+Now store all data in a hashes and so on we have to create a hashes key. Here in my case i created Hash_key as key.
+to save data into redis we use put method with help of redis template we created in begaining. for argument we need 
+to pass hash key , key of the object and value of the object.
+As redis unable to recognise java object for that we have to serialize the object by ourselves to make entity class 
+implemented serializable
+
+
