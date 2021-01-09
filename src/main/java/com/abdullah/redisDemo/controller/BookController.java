@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,6 +33,7 @@ public class BookController {
 	}
 	
 	@PutMapping("/{id}")
+	@CachePut(key="#id", value="Book")
 	public void update(@PathVariable int id, @RequestBody Book book) {
 		System.out.println("id : "+id+"book : "+book);
 		repo.put(id, book);
